@@ -188,9 +188,8 @@ input:focus {
 
 .gallary__box {
   position: relative;
-  min-width: 24.7%;
-  height: 320px;
-
+  width: 24.7%;
+  min-height: 320px;
   background-size: cover;
   background-position: center;
   background-color: #fff;
@@ -222,19 +221,19 @@ input:focus {
 }
 
 .box__one {
-  background-image: url(/img/trend1.jpg);
+  background-image: url(../img/trend1.jpg);
 }
 
 .box__two {
-  background-image: url(/img/trend2.jpg);
+  background-image: url(../img/trend2.jpg);
 }
 
 .box__free {
-  background-image: url(/img/trend3.jpg);
+  background-image: url(../img/trend3.jpg);
 }
 
 .box__four {
-  background-image: url(/img/trend4.jpg);
+  background-image: url(../img/trend4.jpg);
 }
 
 .gallary__block {
@@ -536,16 +535,13 @@ input:focus {
 }
 
 .shop__card {
-  position: relative;
   width: 345px;
   height: 430px;
+  text-align: center;
 }
 
 .card__img {
-  position: absolute;
-  top: 0;
-  left: 24px;
-  right: 24px;
+  position: relative;
   z-index: 1;
 }
 
@@ -558,12 +554,12 @@ input:focus {
 }
 
 .card__border {
-  position: absolute;
-  bottom: 0;
   border: 3px solid #b59f5b;
   z-index: 2;
   height: 265px;
   padding: 20px;
+  position: relative;
+  margin-top: -40px;
 }
 
 .card__title {
@@ -657,7 +653,7 @@ input:focus {
 
 .pop__up {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -668,7 +664,7 @@ input:focus {
 .main__block {
   width: 100%;
   height: 100%;
-  position: relative;
+  position: absolute;
 }
 
 .main__block::before {
@@ -682,8 +678,8 @@ input:focus {
 
 .main_box {
   position: fixed;
-  transform: translate(-195px, -50%);
-  width: 390px;
+  transform: translate(-50%, -50%);
+  max-width: 390px;
   top: 50%;
   left: 50%;
   background: #fff;
@@ -725,14 +721,15 @@ input:focus {
   height: 45px;
   border: none;
   background-color: #f4f7f6;
-  background-image: url(/img/form-arrows.svg);
+  background-image: url(../img/form-arrows.svg);
   background-size: 8px;
   background-repeat: no-repeat;
   background-position: top 16px right 15px;
 }
 
 .frequency__field:focus {
-  border-bottom: 1px solid #b59f5b;
+  border-radius: 1px solid #b59f5b;
+  border-top: #fff;
 }
 
 .form__radio__button {
@@ -756,7 +753,7 @@ input:focus {
   display: inline-block;
   width: 18px;
   height: 18px;
-  background-image: url(/img/form-empty-circle.svg);
+  background-image: url(../img/form-empty-circle.svg);
   background-repeat: no-repeat;
   background-size: 18px;
   background-position: left;
@@ -765,7 +762,7 @@ input:focus {
 }
 
 .button__choice_dots:checked + .radio_button_text::before {
-  background-image: url(/img/form-circle.svg);
+  background-image: url(../img/form-circle.svg);
 }
 
 .form__area {
@@ -780,6 +777,7 @@ input:focus {
 
 .textarea {
   max-width: 100%;
+  max-height: 130px;
   border: none;
   background-color: #f4f7f6;
 }
@@ -805,9 +803,9 @@ input:focus {
   cursor: pointer;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1199px) and (orientation: portrait) {
   .header {
-    background-image: url(/img/banner-bg-tablet.jpg);
+    background-image: url(../img/banner-bg-tablet.jpg);
   }
 
   .menu__nav__list {
@@ -835,7 +833,7 @@ input:focus {
   .gallary__box {
     flex-grow: 1;
     min-width: 49.5%;
-    max-height: 100%;
+    min-height: 245px;
   }
 
   .gallary__block__title {
@@ -868,7 +866,7 @@ input:focus {
   }
 
   .shop__card {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
 
   .card__title {
@@ -881,14 +879,30 @@ input:focus {
   }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 1199px) and (orientation: landscape) {
+  .gallary__box {
+    min-width: 24.7%;
+  }
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
   .header {
-    background-image: url(/img/banner-mobile.jpg);
+    background-image: url(../img/banner-mobile.jpg);
     bottom: 640px;
   }
 
   .info__news {
     position: relative;
+  }
+
+  .info__title {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .info__text {
+    font-size: 14px;
+    line-height: 20px;
   }
 
   .burger__box {
@@ -927,5 +941,41 @@ input:focus {
 
   .additions {
     margin: 0 auto;
+  }
+
+  .news__box {
+    max-width: 320px;
+  }
+
+  .box__images {
+    max-width: 320px;
+  }
+
+  .trend__gallary {
+    flex-direction: column;
+  }
+
+  .gallary__box {
+    min-height: 230px;
+    width: 100%;
+  }
+
+  .shop__block {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .shop__card {
+    margin-bottom: 100px;
+  }
+
+  .main_box {
+    min-width: 330px;
+  }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .gallary__box {
+    min-width: 49.5%;
   }
 }
